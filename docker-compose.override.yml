@@ -1,0 +1,12 @@
+
+version: '3.4'
+
+services:
+  RestaurantsDb:
+    container_name: RestaurantsDb
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Softtek#2023
+    restart: always
+    ports:
+      - "1433:1433"
