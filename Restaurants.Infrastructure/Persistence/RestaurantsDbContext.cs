@@ -10,7 +10,7 @@ internal class RestaurantsDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=localhost;Database=RestaurantsDb;User Id=sa;Password=123;Trusted_Connection=True;");
+        optionsBuilder.UseSqlServer("Server=localhost;Database=RestaurantsDb;User Id=sa;Password=SwN12345678;Encrypt=False;TrustServerCertificate=True");
     }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
