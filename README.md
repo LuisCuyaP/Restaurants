@@ -14,4 +14,8 @@ Migracion:
 - docker logs RestaurantsDb
 - sqlcmd -S localhost,1433 -U sa -P SwN12345678 -Q "SELECT @@VERSION"
 - dotnet build
-- dotnet ef database update --project Restaurants.Infrastructure --startup-project Restaurants.Infrastructure}
+- dotnet ef database update --project Restaurants.Infrastructure --startup-project Restaurants.Infrastructure
+
+Migracion.V2:
+- dotnet ef migrations add Init --project Restaurants.Infrastructure --startup-project Restaurants.API
+- dotnet ef database update --project Restaurants.Infrastructure --startup-project Restaurants.API
