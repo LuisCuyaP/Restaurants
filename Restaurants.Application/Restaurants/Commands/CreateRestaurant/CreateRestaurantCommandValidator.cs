@@ -8,6 +8,11 @@ public class CreateRestaurantCommandValidator : AbstractValidator<CreateRestaura
     private readonly List<string> validCategories = ["Italian", "Mexican", "Chinese", "Indian", "French", "Japanese"];
     public CreateRestaurantCommandValidator()
     {
+        RuleFor(x => x.Name)
+            .NotEmpty()
+            .Length(3, 100)
+            .WithMessage("Name must be between 3 and 100 characters.");
+
         RuleFor(x => x.Category)
             .Must(validCategories.Contains)
             .WithMessage("Invalid category. Please choose a valid category.");
@@ -22,10 +27,6 @@ public class CreateRestaurantCommandValidator : AbstractValidator<CreateRestaura
                 
             });
  */
-        RuleFor(x => x.Name)
-            .NotEmpty()
-            .Length(3, 100)
-            .WithMessage("Name must be between 3 and 100 characters.");
 
         RuleFor(x => x.Description)
             .NotEmpty()
