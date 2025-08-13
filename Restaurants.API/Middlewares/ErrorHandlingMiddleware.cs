@@ -1,13 +1,21 @@
 
+using Restaurants.Domain.Exceptions;
+
 namespace Restaurants.API.Middlewares;
 
-public class ErrorHandlingMiddle(ILogger<ErrorHandlingMiddle> logger) : IMiddleware
+public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
         try
         {
             await next(context);
+        }
+        catch (NotFoundException notFound)
+        {
+            context.Response.StatusCode = StatusCodes.Status404NotFound;
+            await context.Response.WriteAsync(notFound.Message);
+            logger.LogWarning("NotFoundException: {Message}", notFound.Message);
         }
         catch (Exception ex)
         {
