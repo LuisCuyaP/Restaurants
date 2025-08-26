@@ -22,3 +22,4 @@ Migracion.V2:
 
 Migracion.v3 (Configuracion con identity)
 - me situo para cualquier migracion que dese hacer en : C:\Repositorios\Restaurants --> dotnet ef migrations add IdentityAdded --project Restaurants.Infrastructure --startup-project Restaurants.API
+- dotnet ef database update --project Restaurants.Infrastructure --startup-project Restaurants.API
