@@ -7,4 +7,6 @@ public class User : IdentityUser
     //campos personalizados aqui
     public DateOnly? DateOfBirth { get; set; }
     public string? Nationality { get; set; }
+
+    public List<Restaurant> OwnedRestaurants { get; set; } = [];
 }
