@@ -17,6 +17,12 @@ public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : 
             await context.Response.WriteAsync(notFound.Message);
             logger.LogWarning("NotFoundException: {Message}", notFound.Message);
         }
+        catch (ForbidException)
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsync("Access to the requested resource is forbidden.");
+            logger.LogWarning("ForbidException: Access to the requested resource is forbidden.");
+        }
         catch (Exception ex)
         {
             logger.LogError(ex, "An unhandled exception has occurred: {Message}", ex.Message);
