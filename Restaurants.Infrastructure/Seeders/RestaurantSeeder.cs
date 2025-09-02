@@ -55,9 +55,15 @@ internal class RestaurantSeeder(RestaurantsDbContext context) : IRestaurantSeede
 
     private IEnumerable<Restaurant> GetRestaurants()
     {
-        List<Restaurant> restaurants = [
+        User owner = new User()
+        {
+            Email = "seed-user@test.com"
+        };
+
+        List <Restaurant> restaurants = [
             new()
             {
+                Owner = owner,
                 Name = "KFC",
                 Category = "Fast Food",
                 Description = "Fried chicken and fast food, is an American fast food restaurant chain headquartered in Louisville, Kentucky, that specializes in fried chicken.",
