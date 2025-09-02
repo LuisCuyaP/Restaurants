@@ -9,7 +9,9 @@ using Restaurants.Domain.Entities;
 using Microsoft.OpenApi.Models;
 using Restaurants.API.Extensions;
 
-var builder = WebApplication.CreateBuilder(args);
+try
+{
+    var builder = WebApplication.CreateBuilder(args);
 
 builder.AddPresentation();
 builder.Services.AddApplication();
@@ -39,4 +41,7 @@ app.MapGroup("api/identity")
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
+
+}
+
 
