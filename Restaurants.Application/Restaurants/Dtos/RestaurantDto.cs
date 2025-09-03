@@ -13,6 +13,7 @@ public class RestaurantDto
     public string City { get; set; } = default!;
     public string Street { get; set; } = default!;
     public string PostalCode { get; set; } = default!;
+    public string? LogoSasUrl { get; set; }
     public List<DishDto> Dishes { get; set; } = [];
     public static RestaurantDto? FromEntity(Restaurant? restaurant)
     {
