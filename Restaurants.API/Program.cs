@@ -9,8 +9,8 @@ using Restaurants.Domain.Entities;
 using Microsoft.OpenApi.Models;
 using Restaurants.API.Extensions;
 
-try
-{
+// try
+// {
     var builder = WebApplication.CreateBuilder(args);
 
     builder.AddPresentation();
@@ -42,15 +42,15 @@ try
     app.MapControllers();
     app.Run();
 
-}
-catch (Exception ex)
-{
-    Log.Fatal(ex, "Application start-up failed");
-}
-finally
-{
-    Log.CloseAndFlush();
-}
+// }
+// catch (Exception ex)
+// {
+//     Log.Fatal(ex, "Application start-up failed");
+// }
+// finally
+// {
+//     Log.CloseAndFlush();
+// }
 
-public partial class Program { }
+// public partial class Program { }
 
